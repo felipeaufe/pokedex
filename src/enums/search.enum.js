@@ -1,3 +1,4 @@
 export const searchEnum = Object.freeze({
-  NO_SEARCH: "no-search",
+  NO_VALUE: "no-search",
+  NOT_FOUND: "not-found"
 });

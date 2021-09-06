@@ -61,11 +61,15 @@ export default class HomeController {
    */
   searchPokemon (pokemon) {
     console.log({pokemon})
-    if(pokemon === searchEnum.NO_SEARCH) {
+    if(pokemon === searchEnum.NO_VALUE) {
       this.listPokemonResponse = undefined;
       this.cardListEl.innerHTML = "";
       this.getPokemonList();
 
+    } else if(pokemon === searchEnum.NOT_FOUND) {
+      this.listPokemonResponse = undefined;
+      this.cardListEl.innerHTML = "";
+      
     } else if(pokemon) {
       this.listPokemonResponse = undefined;
       this.cardListEl.innerHTML = "";

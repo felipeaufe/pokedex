@@ -37,7 +37,7 @@ export default class HeaderController {
     const value = this.inputEl.value.toLowerCase();
 
     if(value.length == 0) {
-      return this._onSearch(searchEnum.NO_SEARCH);
+      return this._onSearch(searchEnum.NO_VALUE);
     }
 
     let pokemon = await Database.getByName(value);
@@ -56,6 +56,8 @@ export default class HeaderController {
 
       return this._onSearch(pokemon);
     }
+
+    this._onSearch(searchEnum.NOT_FOUND);
   }
 
   /**
