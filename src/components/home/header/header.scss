@@ -1,0 +1,33 @@
+#header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-30);
+
+  > span {
+    font-weight: var(--font-bold);
+    font-size: var(--font-size-24);
+    margin-right: var(--spacing-75);
+  }
+
+  .search {
+    position: relative;
+    width: 100%;
+    input {
+      height: var(--sizing-50);
+      border-radius: var(--border-radius-50);
+      width: 100%;
+      padding-left: var(--spacing-30);
+      padding-right: var(--spacing-60);
+      font-size: var(--font-size-18);
+    }
+    button {
+      position: absolute;
+      width: var(--sizing-50);
+      height: var(--sizing-50);
+      margin-right: var(--spacing-5);
+      right: 0;
+      background: none;
+    }
+  }
+}

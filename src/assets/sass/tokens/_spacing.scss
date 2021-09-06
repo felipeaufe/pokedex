@@ -1,3 +1,10 @@
 @mixin spacing {
-  @include scale () {}
+  --spacing-5: 5px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-15: 15px;
+  --spacing-20: 20px;
+  --spacing-30: 30px;
+  --spacing-60: 60px;
+  --spacing-75: 75px;
 }

@@ -1,7 +1,18 @@
-@import './themes/default';
+@import './themes/_color-default';
 
-:root {
-  @include default-theme;
+@import './font-size';
+@import './spacing';
+@import './sizing';
+@import './border';
+@import './box-shadow';
+
+:root,
+::after,
+::before {
+  @include font-size;
+  @include font-weight;
+  @include spacing;
+  @include sizing;
+  @include border-radius;
+  @include box-shadow;
 }
-
-// themes

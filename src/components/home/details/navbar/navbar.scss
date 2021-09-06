@@ -1,0 +1,33 @@
+#navbar {
+  padding: var(--spacing-30);
+  
+  ul {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: var(--border-width-2) solid var(--color-gray);
+
+    li {
+      position: relative;
+      font-size: var(--font-size-14);
+      height: var(--sizing-30);
+      line-height: var(--sizing-30);
+      font-weight: var(--font-light);
+      cursor: pointer;
+
+      &.active {
+        font-size: var(--font-size-18);
+        font-weight: var(--font-regular);
+
+        &::after {
+          content: ' ';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: calc(var(--border-width-2) * -1);
+          border-bottom: var(--border-width-2) solid var(--color-red);
+        }
+      }
+    }
+  }
+}

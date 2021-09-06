@@ -1,0 +1,56 @@
+#stats {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--spacing-30);
+
+
+  p.description {
+    color: var(--color-text-gray);
+    width: var(--sizing-110);
+  }
+
+  p.value {
+    margin-right: var(--spacing-15);
+  }
+
+  > div {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: var(--spacing-20);
+  }
+
+  .progress-bar {
+    position: relative;
+    height: var(--border-width-3);
+    width: 100%;
+    flex: 1 1 0;
+    background-color: var(--color-gray);
+    border-radius: var(--border-radius-50);
+
+    > div {
+      position: absolute;
+      height: var(--border-width-3);
+      background-color: var(--color-blue);
+      border-radius: var(--border-radius-50);
+    }
+
+  }
+  .bg {
+    &-blue .progress-bar div {
+      background-color: var(--color-blue);
+    }
+    &-green .progress-bar div {
+      background-color: var(--color-green);
+    }
+    &-red .progress-bar div {
+      background-color: var(--color-red);
+    }
+  }
+
+  .title {
+    margin: var(--spacing-30) 0 var(--spacing-12);
+  }
+  .note {
+    color: var(--color-text-gray);
+  }
+}

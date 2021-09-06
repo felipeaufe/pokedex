@@ -1,0 +1,19 @@
+#about {
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--spacing-30);
+
+  p.description {
+    color: var(--color-text-gray);
+    width: var(--sizing-110);
+  }
+
+  > div {
+    display: inline-flex;
+    margin-bottom: var(--spacing-20);
+  }
+
+  .title {
+    margin: var(--spacing-30) 0;
+  }
+}

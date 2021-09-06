@@ -1,0 +1,21 @@
+.bg-color {
+  &-default { background-color: var(--color-background); }
+  &-plant { background-color: var(--color-plant); }
+  &-fire { background-color: var(--color-fire); }
+  &-water { background-color: var(--color-water); }
+  &-insect { background-color: var(--color-insect); }
+  &-normal { background-color: var(--color-normal); }
+  &-poisonous { background-color: var(--color-poisonous); }
+  &-electric { background-color: var(--color-electric); }
+  &-land { background-color: var(--color-land); }
+  &-fighter { background-color: var(--color-fighter); }
+  &-psychic { background-color: var(--color-psychic); }
+  &-rock { background-color: var(--color-rock); }
+  &-flying { background-color: var(--color-flying); }
+  &-ghost { background-color: var(--color-ghost); }
+  &-ice { background-color: var(--color-ice); }
+  &-dragon { background-color: var(--color-dragon); }
+  &-metallic { background-color: var(--color-metallic); }
+  &-night { background-color: var(--color-night); }
+  &-fairy { background-color: var(--color-fairy); }
+}

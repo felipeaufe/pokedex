@@ -1,0 +1,40 @@
+#home {
+  position: relative;
+  box-shadow: var(--box-shadow);
+
+  &.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 740px;
+    height: 550px;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-34);
+    padding: var(--spacing-30) var(--spacing-30) 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #header {
+    order: 1;
+  }
+
+  .card-list {
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: max-content;
+    gap: var(--spacing-12);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    padding-bottom: var(--spacing-30);
+
+    // Scrollbar spacing
+    margin-right: calc(var(--spacing-15) * -1);
+    padding-right: var(--spacing-15);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
