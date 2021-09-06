@@ -5,17 +5,18 @@
   &-water { background-color: var(--color-water); }
   &-bug { background-color: var(--color-bug); }
   &-normal { background-color: var(--color-normal); }
-  &-poisonous { background-color: var(--color-poisonous); }
+  &-poison { background-color: var(--color-poison); }
   &-electric { background-color: var(--color-electric); }
-  &-land { background-color: var(--color-land); }
-  &-fighter { background-color: var(--color-fighter); }
+  &-ground { background-color: var(--color-ground); }
+  &-fighting { background-color: var(--color-fighting); }
   &-psychic { background-color: var(--color-psychic); }
   &-rock { background-color: var(--color-rock); }
   &-flying { background-color: var(--color-flying); }
   &-ghost { background-color: var(--color-ghost); }
   &-ice { background-color: var(--color-ice); }
   &-dragon { background-color: var(--color-dragon); }
-  &-metallic { background-color: var(--color-metallic); }
+  &-steel { background-color: var(--color-steel); }
   &-night { background-color: var(--color-night); }
   &-fairy { background-color: var(--color-fairy); }
+  &-dark { background-color: var(--color-dark); }
 }

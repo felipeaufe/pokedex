@@ -11,6 +11,7 @@
 
   p.value {
     margin-right: var(--spacing-15);
+    width: var(--sizing-30);
   }
 
   > div {
@@ -29,6 +30,7 @@
 
     > div {
       position: absolute;
+      max-width: 100%;
       height: var(--border-width-3);
       background-color: var(--color-blue);
       border-radius: var(--border-radius-50);

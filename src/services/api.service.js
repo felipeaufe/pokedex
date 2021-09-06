@@ -20,13 +20,18 @@ class ApiService {
 
   async getPokemon( idName ) {
    const pokemon = await this.request('pokemon/', idName);
-   const specie = await this.request('pokemon-species/', idName);
 
-    return {
-      ...pokemon,
-      eggs: specie.egg_groups.map((egg) => egg.name),
-      evolution_chain: specie.evolution_chain.url
-    }
+    if(pokemon) {
+      const specie = await this.request('pokemon-species/', idName);
+  
+      return {
+        ...pokemon,
+        eggs: specie.egg_groups.map((egg) => egg.name),
+        evolution_chain: specie.evolution_chain.url
+      }
+    }  
+
+    return pokemon;
   }
 
   getPokemonSpecie (idName) {
@@ -37,7 +42,7 @@ class ApiService {
     return this.request('evolution-chain/', id);
   }
 
-  listPokemon (next) {
+  listPokemon (next = '') {
 
     if(next) {
       const offset = next.split('?');
@@ -48,13 +53,19 @@ class ApiService {
   };
 
   async request (endpoint, value = '', type = 'GET') {
-    const response = await fetch(env.api.url + endpoint + value, { method: type, mode: 'cors',});
+    try {
+      const response = await fetch(env.api.url + endpoint + value, { method: type, mode: 'cors',});
+      
+      if (response.status === 200) {
+        return await response.json();
+      }
+      
+      throw new Error(response);
+    } catch (error) {
+      console.error(error);
 
-    if (response.status === 200) {
-      return await response.json();
+      return null;
     }
-
-    throw new Error(response);
   }
 }
 
