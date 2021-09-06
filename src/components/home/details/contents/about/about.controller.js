@@ -3,6 +3,8 @@ import './about.scss';
 import html from './about.html?raw';
 import { HTMLParser } from '../../../../../util/DOMParse';
 import { nameFormat } from '../../../../../util/formatter';
+import ApiService from '../../../../../services/api.service';
+import Database from '../../../../../database/database';
 
 export default class AboutController {
 
@@ -28,9 +30,9 @@ export default class AboutController {
     this.speciesEl.innerHTML = nameFormat(this.payload.species.name);
     this.heightEl.innerHTML = this.payload.height / 10 + 'm';
     this.weightEl.innerHTML = this.payload.weight / 10 + 'kg';
-    this.abilitiesEl.innerHTML = this.payload.abilities.map((val) => val.ability.name).join(', ');
+    this.abilitiesEl.innerHTML = this.payload.abilities.map((ability) => ability.name).join(', ');
     this.genderEl.innerHTML = "____";
-    this.eggGroupsEl.innerHTML = "____";
-    this.eggCycleEl.innerHTML = "____";
+    this.eggGroupsEl.innerHTML = this.payload.eggs[0];
+    this.eggCycleEl.innerHTML = this.payload.eggs[1];
   }
 }

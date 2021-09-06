@@ -26,7 +26,7 @@ export default class CardController {
    * Set background color according element
    */
   setBackgroundColor () {
-    this.element.classList.add('bg-color-fire');
+    this.element.classList.add(`bg-color-${this.payload.types[0]}`);
   }
 
   /**
@@ -47,8 +47,7 @@ export default class CardController {
    * Set pokemon image
    */
   setImage() {
-    const image = this.payload.sprites.other['official-artwork'].front_default;
-    this.imageEl.style.backgroundImage = `url('${image}')`;
+    this.imageEl.style.backgroundImage = `url('${this.payload.image}')`;
   }
 
   /**
@@ -59,7 +58,7 @@ export default class CardController {
 
     for(let index = 0; index < types.length; index ++) {
       const typeEl = document.createElement('div') ;
-      typeEl.innerHTML = nameFormat(types[index].type.name);
+      typeEl.innerHTML = nameFormat(types[index]);
       this.elementEl.appendChild(typeEl);
     }
   }

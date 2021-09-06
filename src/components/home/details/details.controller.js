@@ -38,14 +38,14 @@ export default class DetailsController {
    * Set background color according element
    */
   setBackgroundColor () {
-    this.element.classList.add('bg-color-fire');
+    this.element.classList.add(`bg-color-${this.payload.types[0]}`);
   }
 
   /**
    * Set image
    */
    setImage() {
-     const image = this.payload.sprites.other['official-artwork'].front_default;
+     const image = this.payload.image;
      const imageEl = document.createElement('img');
      imageEl.src = image;
     this.imageEl.appendChild(imageEl);
@@ -69,7 +69,7 @@ export default class DetailsController {
    * Set id number
    */
   setFooterInfo() {
-    this.typeEl.innerHTML = nameFormat(this.payload.types[0].type.name);
+    this.typeEl.innerHTML = nameFormat(this.payload.types[0]);
     this.weightEl.innerHTML = this.payload.weight / 10;
     this.heightEl.innerHTML = this.payload.height / 10;
   }
@@ -83,7 +83,7 @@ export default class DetailsController {
 
     // Content
     this.contentEl.appendChild(navbarEl.element);
-    this.contentEl.appendChild(new StatsController(this.payload).element);
+    this.contentEl.appendChild(new AboutController(this.payload).element);
 
     // Tab change event
     navbarEl.onTabChange((tab) => {
@@ -101,8 +101,10 @@ export default class DetailsController {
           this.contentEl.appendChild(new MovesController(this.payload).element)
           break;
         case tabsEnum.ABOUT:
-        default:
           this.contentEl.appendChild(new AboutController(this.payload).element)
+          break;
+        default:
+          this.contentEl.appendChild(document.createElement('div'));
           break;
       }
     });

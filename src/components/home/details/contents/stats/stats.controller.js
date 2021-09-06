@@ -59,7 +59,14 @@ export default class StatsController {
   valueConfig (element, value) {
     element.querySelector('.value').innerHTML = value;
     element.querySelector('div').style.width = `${value}%`;
-    element.classList.add(value < 50 ? 'bg-red' : 'bg-green');
+    
+    if(value < 50) {
+      element.classList.add('bg-red');
+    } else if(value < 70) {
+      element.classList.add('bg-yellow');
+    } else {
+      element.classList.add('bg-green');
+    }
   }
 
   /**
@@ -69,7 +76,7 @@ export default class StatsController {
    * @returns State value
    */
   findStatsProperty(property) {
-    return (this.payload.stats.find((value) => value.stat.name === property)).base_stat;
+    return (this.payload.stats.find((value) => value.name === property)).value;
   }
 
 }

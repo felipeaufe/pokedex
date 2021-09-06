@@ -14,21 +14,12 @@ export default class HomeController {
     this.element.appendChild(new HeaderController().element);
 
     this.getPokemonList();
-
-    // this.element.appendChild(new DetailsController(charmander).element);
-    
-    // for(let index = 0; index < 50; index ++) {
-    //   const cardEl = new CardController(charmander).element;
-    //   this.element
-    //     .querySelector('.card-list')
-    //     .appendChild(cardEl);
-    //   cardEl.addEventListener('click', (event) => {
-    //     this.element.appendChild(new DetailsController(charmander).element);
-    //   });
-    // }
   }
 
 
+  /**
+   * Get paginated pokemon list from API
+   */
   async getPokemonList() {
     const response = await ApiService.listPokemon();
     const list = [];
@@ -39,7 +30,9 @@ export default class HomeController {
 
       if(!pokemon) {
         pokemon = await ApiService.getPokemon(response.results[index].name)
-        Database.setItem(pokemon);
+        pokemon = Database.getPokemonData(pokemon);
+
+        await Database.setItem(pokemon);
       }
 
       list.push(pokemon);
@@ -49,11 +42,14 @@ export default class HomeController {
   }
 
 
+  /**
+   * Populate view card list
+   * 
+   * @param {Array} list 
+   */
   populateList (list) {
 
-    console.log(list)
-
-    for(let index = 0; index < list.lenght; index ++) {
+    for(let index = 0; index < list.length; index ++) {
       const cardEl = new CardController(list[index]).element;
       this.element
         .querySelector('.card-list')

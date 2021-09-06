@@ -18,8 +18,23 @@ class ApiService {
     return instance;
   }
 
-  getPokemon( idName ) {
-   return this.request('pokemon/', idName);
+  async getPokemon( idName ) {
+   const pokemon = await this.request('pokemon/', idName);
+   const specie = await this.request('pokemon-species/', idName);
+
+    return {
+      ...pokemon,
+      eggs: specie.egg_groups.map((egg) => egg.name),
+      evolution_chain: specie.evolution_chain.url
+    }
+  }
+
+  getPokemonSpecie (idName) {
+    return this.request('pokemon-species/', idName);
+  }
+
+  getEvolution( id ) {
+    return this.request('evolution-chain/', id);
   }
 
   listPokemon (next) {

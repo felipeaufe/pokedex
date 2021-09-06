@@ -45,6 +45,9 @@
     &-red .progress-bar div {
       background-color: var(--color-red);
     }
+    &-yellow .progress-bar div {
+      background-color: var(--color-yellow);
+    }
   }
 
   .title {

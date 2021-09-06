@@ -66,9 +66,10 @@ class Database {
     }
 
     const response = await this.initialize();
-    this.storeDB = response.store;
-    this.indexDB = response.index;
-    return this.storeDB;
+    return response.store;
+    // this.storeDB = response.store;
+    // this.indexDB = response.index;
+    // return this.storeDB;
   }
 
   /**
@@ -82,10 +83,11 @@ class Database {
     }
 
     const response = await this.initialize();
-    this.storeDB = response.store;
-    this.indexDB = response.index;
+    return response.index;
+    // this.storeDB = response.store;
+    // this.indexDB = response.index;
 
-    return this.indexDB;
+    // return this.indexDB;
   }
 
   /**
@@ -96,9 +98,22 @@ class Database {
    */
   async setItem (data) {
     const store = await this.store();
-    console.log({ data, store });
     store.put(data);
 
+    return data;
+  }
+
+
+  /**
+   * Update item Database
+   * 
+   * @param {Object} data 
+   * @returns 
+   */
+   async updateItem (data) {
+    const store = await this.store();
+    store.put(data);
+    
     return data;
   }
 
@@ -128,6 +143,32 @@ class Database {
     });
   }
 
+  /**
+   * Simplifying request data, returning only useful data
+   * 
+   * @param {Object} pokemon 
+   * @returns 
+   */
+   getPokemonData (pokemon) {
+    return {
+      name: pokemon.name,
+      id: pokemon.id,
+      image: pokemon.sprites.other['official-artwork'].front_default,
+      element: pokemon.types,
+      weight: pokemon.weight,
+      height: pokemon.height,
+      species: pokemon.species,
+      abilities: pokemon.abilities.map((item) => ({ ...item.ability, is_hidden: item.is_hidden })),
+      types: pokemon.types.map((type) => type.type.name),
+      moves: pokemon.moves.map(item => item.move.name),
+      eggs: pokemon.eggs,
+      evolution_chain: pokemon.evolution_chain,
+      stats: pokemon.stats.map((stat) => ({
+        value: stat.base_stat,
+        name: stat.stat.name,
+      })),
+    }
+  }
 }
 
 export default new Database();

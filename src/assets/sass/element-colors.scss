@@ -1,9 +1,9 @@
 .bg-color {
   &-default { background-color: var(--color-background); }
-  &-plant { background-color: var(--color-plant); }
+  &-grass { background-color: var(--color-grass); }
   &-fire { background-color: var(--color-fire); }
   &-water { background-color: var(--color-water); }
-  &-insect { background-color: var(--color-insect); }
+  &-bug { background-color: var(--color-bug); }
   &-normal { background-color: var(--color-normal); }
   &-poisonous { background-color: var(--color-poisonous); }
   &-electric { background-color: var(--color-electric); }
