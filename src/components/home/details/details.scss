@@ -70,6 +70,7 @@
         z-index: 2;
 
         @include mobile {
+          max-width: auto;
           max-height: 100%;
         }
       }
