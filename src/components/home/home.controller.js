@@ -24,7 +24,12 @@ export default class HomeController {
     this.loadingEl = this.element.querySelector('.loading');
 
     this.InfiniteScroll();
-    this.getPokemonList();
+    
+    this.loadingEl.classList.add('show');
+    
+    this.getPokemonList().then(() => {
+      this.loadingEl.classList.remove('show')
+    });
     
     headerController.onSearch((pokemon) => this.searchPokemon(pokemon));
   }

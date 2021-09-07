@@ -39,6 +39,15 @@
 
     @include mobile {
       grid-template-columns: 1fr 1fr;
+
+      .card {
+        justify-self: end;
+        align-self: center;
+
+        &:nth-child(even) {
+          justify-self: start;
+        }
+      }
     }
   }
 
