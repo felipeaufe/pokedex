@@ -70,7 +70,11 @@
         z-index: 2;
 
         @include mobile {
+<<<<<<< HEAD
           max-width: initial;
+=======
+          max-width: auto;
+>>>>>>> 7931a86ea707fc3eb5e8fc312fe1e33aec973164
           max-height: 100%;
         }
       }
