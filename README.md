@@ -56,7 +56,10 @@ pokedex/
 
 For the use and realization of this project, good UI and UX practices were used. All screens were pre-drawn, designating all the tokens necessary for encoding the elements
 
-![](https://github.com/felipeaufe/noughts-and-crosses/blob/main/doc/print-home.png?raw=true)
+<a href="https://github.com/felipeaufe/pokedex/blob/main/doc/Pokedex.pdf">
+  <img alt="Abhishek's Spotify" src="https://github.com/felipeaufe/pokedex/blob/main/doc/print-home.png?raw=true" />
+</a>
+
 
 # IndexedDB
 
