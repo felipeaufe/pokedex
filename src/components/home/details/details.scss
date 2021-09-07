@@ -68,7 +68,6 @@
       img {
         max-width: 100%;
         z-index: 2;
-
         @include mobile {
           max-width: initial;
           max-height: 100%;
