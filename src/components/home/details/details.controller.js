@@ -46,9 +46,10 @@ export default class DetailsController {
    */
    setImage() {
      const image = this.payload.image;
-     const imageEl = document.createElement('img');
-     imageEl.src = image;
-    this.imageEl.appendChild(imageEl);
+    //  const imageEl = document.createElement('img');
+    //  imageEl.src = image;
+    // this.imageEl.appendChild(imageEl);
+    this.imageEl.querySelector('i').style.backgroundImage = `url('${image}')`;
   }
 
   /**
