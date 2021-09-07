@@ -1,3 +1,5 @@
+@import '../../assets/sass/mixin';
+
 #home {
   position: relative;
   box-shadow: var(--box-shadow);
@@ -12,6 +14,13 @@
     padding: var(--spacing-30) var(--spacing-30) 0;
     display: flex;
     flex-direction: column;
+
+    @include mobile {
+      height: 100vh;
+      width: 100vw;
+      border-radius: 0;
+      padding: var(--spacing-20);
+    }
   }
 
   #header {
@@ -27,6 +36,10 @@
     // Scrollbar spacing
     margin-right: calc(var(--spacing-15) * -1);
     padding-right: var(--spacing-15);
+
+    @include mobile {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .scroll-box {
@@ -41,8 +54,10 @@
     overflow-y: scroll;
     overflow-x: hidden;
 
-    &::-webkit-scrollbar {
-    //   // display: none;
+    @include mobile { 
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 

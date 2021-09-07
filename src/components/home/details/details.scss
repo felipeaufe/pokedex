@@ -1,3 +1,5 @@
+@import '../../../assets/sass/mixin';
+
 #details {
 
   --image-content: calc(var(--sizing-40) + var(--sizing-22) + var(--sizing-40));
@@ -14,10 +16,21 @@
   right: 0;
   z-index: 1;
 
+  @include mobile {
+    flex-direction: column;
+    border-radius: 0;
+  }
+
   .profile {
     width: var(--sizing-335);
     height: 100%;
     padding: var(--spacing-30);
+    
+    @include mobile {
+      width: 100vw;
+      height: 40%;
+      padding: var(--spacing-20) var(--spacing-20) var(--spacing-10);
+    }
 
     .header {
       position: relative;
@@ -50,10 +63,15 @@
       align-items: center;
       justify-content: center;
       height: calc(100% - var(--image-content));
+      position: relative;
 
       img {
         max-width: 100%;
         z-index: 2;
+
+        @include mobile {
+          max-height: 100%;
+        }
       }
 
       &::before {
@@ -66,6 +84,12 @@
         position: absolute;
         z-index: 1;
         margin-top: calc(var(--spacing-75) * -1);
+
+        @include mobile {
+          width: calc(var(--sizing-335) * 0.5);
+          height: calc(var(--sizing-335) * 0.5);
+          bottom: 0;
+        }
       }
     }
 
@@ -107,5 +131,12 @@
     border-radius: var(--border-radius-34);
     display: flex;
     flex-direction: column;
+
+    @include mobile {
+      width: 100vw;
+      padding: var(--spacing-10) var(--spacing-20) var(--spacing-20);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 }
